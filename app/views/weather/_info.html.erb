@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        if(document.getElementById('url').innerHTML != 0){
+          google.charts.load('current', {'packages':['bar']});
+          google.charts.load('current', {'packages':['corechart']});
+          var url = document.getElementById('url').innerHTML;
+          $.ajax({
+            method: 'GET',
+            url: url,
+            dataType: 'jsonp',
+            jsonpCallback: 'callback',
+            success: function(data){
+              window.weather_info = data;
+            }
+          });
+          google.charts.setOnLoadCallback(draw_bar_chart);
+          google.charts.setOnLoadCallback(draw_line_chart);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id = 'url' style = 'display:none'><%= @url %></div>
+    <div id = 'num' style = 'display:none'><%= @num %></div>
+    <center>
+      <% unless @weather_response.nil? %>
+        <div class="tab">
+          <button class="tablinks active" onclick="openTab(event, 'bar_graph')">Graphical</button>
+          <button class="tablinks" onclick="openTab(event, 'tabular')">Tabular</button>
+        </div>
+        <br>
+        <div id="tabular" class="tabcontent">
+          <div>
+            <b>Summary:</b><%= @weather_header["summary"] %>
+          </div>
+          <br>
+          <table id="weather">
+            <tr>
+              <th>Date</th>
+              <th>Low Temp.</th>
+              <th>High Temp.</th>
+              <th>Humidity</th>
+              <th>Pressure</th>
+              <th>Wind Speed</th>
+              <th>Summary</th>
+            </tr>
+            <% @weather_response.each do |res| %>
+              <tr>
+                <td><%= pretty_date(res["time"])%></td>
+                <td><%= res["temperatureLow"]%></td>
+                <td><%= res["temperatureHigh"]%></td>
+                <td><%= res["humidity"]%></td>
+                <td><%= res["pressure"]%></td>
+                <td><%= res["windSpeed"]%></td>
+                <td><%= res["summary"]%></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div id="bar_graph" class="gtabcontent">
+        </div>
+        <div id="line_chart" class="gtabcontent">
+        </div>
+      <% end %>
+    </center>
+  </body>
+</html>
