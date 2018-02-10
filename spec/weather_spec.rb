@@ -1,15 +1,5 @@
 require "rails_helper"
 
-# feature "user visits homepage" do
-#   scenario "successfully" do
-#     visit root_path
-#     fill_in "address", with: "NY"
-#     # fill_in "no", with: "2"
-#     click_button "Search"
-#     # expect(page).to have_css('h1', text: "Current Weather for 51.5072, -0.1275")  
-#   end
-# end
-
 module WeatherForecast
   RSpec.describe Weather do
     context 'when valid parameters' do
