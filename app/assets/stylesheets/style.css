@@ -1,0 +1,105 @@
+h2 {
+  color: #40458D;
+}
+input[type=text], select {
+  width: 50%;
+  padding: 10px 20px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit], a {
+  width: 43%;
+  background-color: #1E90FF;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+}
+
+input[type=submit]:hover, a:hover {
+  background-color:   #4169E1;
+}
+
+.link{
+  width: 48%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#weather {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#weather td, #weather th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#weather tr:nth-child(even){background-color: #CEF6EC;}
+
+#weather tr:hover {background-color: #ddd;}
+
+#weather th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1E90FF;
+  color: white;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #CEF6EC;
+  width: 15%;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 9px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: black;
+}
+
+.tab button:hover {
+  background-color: #4169E1;
+  color: white;
+}
+.tab button.active {
+  background-color: #1E90FF;
+  color: white;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.gtabcontent {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+}
