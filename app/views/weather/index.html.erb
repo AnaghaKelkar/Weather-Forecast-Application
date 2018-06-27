@@ -1,12 +1,17 @@
 <html>
   <body>
     <center>
+      <%= image_tag 'Weather-Forecast-Landing-page.jpeg', style: 'height:350px;width:70%;' %>
+      <hr style="margin-top:2%;">
       <h2>Welcome to Weather forecast Application</h2>
-      <%= form_tag("/", method:"get") do %>
-        <%= text_field_tag(:address, @location, :required => true, :placeholder => 'Enter Address to view Weather Forecast') %><br>
-        <%= select_tag(:no, options_for_select(type_options, @num), :required => true, :placeholder => 'Select type') %><br>
-        <%= submit_tag("Search") %> <%= link_to "Refresh", "/"%><hr>
-      <% end %>
+      <hr>
+      <div style="margin-top:2%; margin-bottom: 2%;">
+        <%= form_tag("/", method:"get") do %>
+          <%= text_field_tag(:address, @location, :required => true, :placeholder => 'Enter Address to view Weather Forecast') %><br>
+          <%= select_tag(:no, options_for_select(type_options, @num), :required => true, :placeholder => 'Select type') %><br>
+          <%= submit_tag("Search") %> <%#= link_to "Refresh", "/"%>
+        <% end %>
+      </div>
     </center>
     <div class="weather_information_index">
       <%= render 'info' %>

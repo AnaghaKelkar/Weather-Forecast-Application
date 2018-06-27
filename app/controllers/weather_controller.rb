@@ -28,6 +28,14 @@ private
   end
 
   def get_params(params)
-    [params[:address], params[:no].to_i]
+    [params[:address], filter_no_of_days(params[:no])]
+  end
+
+  def filter_no_of_days(no_of_days)
+    no_of_days.to_i.zero? ? default_days : no_of_days.to_i
+  end
+
+  def default_days
+    7
   end
 end

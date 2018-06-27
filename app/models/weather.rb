@@ -1,7 +1,7 @@
 class Weather
   attr_reader :address, :no_of_days
   def initialize(params)
-    @no_of_days = params[:no]
+    @no_of_days = filter_no_of_days(params[:no])
     @address = params[:address]
   end
 
@@ -20,8 +20,7 @@ class Weather
   end
 
   def wres
-    forecast = JSON.parse(call)["daily"]["data"]
-    forecast = forecast.first(no_of_days.to_i) unless no_of_days.to_i.zero?
+    forecast = JSON.parse(call)["daily"]["data"].first(no_of_days)
   end
 
   def call
@@ -45,5 +44,13 @@ class Weather
 
   def coordinates
     [location.first, location.last]
+  end
+
+  def filter_no_of_days(no_of_days)
+    no_of_days.to_i.zero? ? default_days : no_of_days.to_i
+  end
+
+  def default_days
+    7
   end
 end
