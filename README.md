@@ -12,10 +12,10 @@ Features:
 Implementation:
 
 1. Geocoder:
-  ● Geocoder gem is used to get latitude and longitude of a given address/location.
-  ● Geocoder.coordinates(address) returns array of latitude and longitude.
+  - Geocoder gem is used to get latitude and longitude of a given address/location.
+  - Geocoder.coordinates(address) returns array of latitude and longitude.
 2. Dark sky API:
-  ● Once we get coordinates based on location, we can call dark sky api to get information about weather for selected number of days.
+  - Once we get coordinates based on location, we can call dark sky api to get information about weather for selected number of days.
 3. Google charts:
-  ● For graphical representation, I have used google charts to display Bar graph and Line chart.
+  - For graphical representation, I have used google charts to display Bar graph and Line chart.
 
