@@ -18,7 +18,8 @@ function draw_bar_chart(){
       title: 'Temperature (in Farenheit)'
     },
     bars: 'vertical',
-    // isStacked: true
+    isStacked: true,
+    width: 800
   };
   var chart = new google.charts.Bar(document.getElementById('bar_graph'));
   chart.draw(data, google.charts.Bar.convertOptions(options));
@@ -28,7 +29,7 @@ function draw_line_chart(){
   var data = google.visualization.arrayToDataTable(build_weather_data());
   var options = {
     titleTextStyle: {fontSize: '18'},
-    width: 900,
+    width: 800,
     height: 200,
     hAxis: {
       title: 'Date',
@@ -69,7 +70,7 @@ function draw_line_chart(){
 }
 
 function build_weather_data(){
-  var data_table_array = [['Date', 'High Temperature', 'Low Temperature']];
+  var data_table_array = [['Date', 'High', 'Low']];
   var d = daily_data();
   num = parseInt(document.getElementById('num').innerHTML);
   for(var i=0;i<num;i++){

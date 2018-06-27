@@ -11,7 +11,18 @@ input[type=text], select {
   box-sizing: border-box;
 }
 
-input[type=submit], a {
+input[type=submit]{
+  width: 50%;
+  background-color: #1E90FF;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+a{
   width: 43%;
   background-color: #1E90FF;
   color: white;
@@ -85,10 +96,12 @@ input[type=submit]:hover, a:hover {
 .tab button:hover {
   background-color: #4169E1;
   color: white;
+  width: 100%;
 }
 .tab button.active {
   background-color: #1E90FF;
   color: white;
+  width: 100%;
 }
 
 .tabcontent {
